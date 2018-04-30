@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_red"
+        android:orderInCategory="1"
+        android:title="@string/red_string"
+        app:showAsAction="never" />
+    <item
+    android:id="@+id/menu_blue"
+    android:orderInCategory="1"
+    android:title="@string/blue_string"
+    app:showAsAction="never" />
+    <item
+    android:id="@+id/menu_green"
+    android:orderInCategory="1"
+    android:title="@string/green_string"
+    app:showAsAction="never" />
+</menu>
