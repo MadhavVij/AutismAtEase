@@ -27,6 +27,7 @@ public class Contact {
     public int getContactID() {
         return contactID;
     }
+
     public void setContactID(int i) {
         contactID = i;
     }
@@ -34,6 +35,7 @@ public class Contact {
     public String getfName() {
         return fName;
     }
+
     public void setfName(String s) {
         fName = s;
     }
@@ -41,34 +43,39 @@ public class Contact {
     public String getlName() {
         return lName;
     }
+
     public void setlName(String s) {
         lName = s;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String s) {
+        gender = s;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String s) {
+        age = s;
     }
 
     public String getEMail() {
         return eMail;
     }
+
     public void setEMail(String s) {
         eMail = s;
-    }
-
-    public String getAddress() {
-        return gender;
-    }
-    public void setAddress(String s) {
-        gender = s;
-    }
-
-    public String getCellNumber() {
-        return age;
-    }
-    public void setCellNumber(String s) {
-        age = s;
     }
 
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String s) {
         password = s;
     }

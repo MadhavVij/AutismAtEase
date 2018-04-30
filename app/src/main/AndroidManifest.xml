@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.project3.www.AutismAtEase.MainActivity">
+        <activity android:name="com.project3.www.AutismAtEase.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,15 +17,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.project3.www.AutismAtEase.Main2Activity"
+            android:name="com.project3.www.AutismAtEase.MainActivity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.project3.www.AutismAtEase.click" />
         <activity android:name="com.project3.www.AutismAtEase.trace" />
         <activity android:name="com.project3.www.AutismAtEase.guess" />
-        <activity android:name="com.project3.www.AutismAtEase.forgotpass"/>
+        <activity android:name="com.project3.www.AutismAtEase.forgotpass" />
 
-        <activity android:name="com.project3.www.AutismAtEase.Register"
+        <activity
+            android:name="com.project3.www.AutismAtEase.Register"
             android:label="@string/register_banner">
             <intent-filter>
                 <action android:name="android.intent.action.Register" />
