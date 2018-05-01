@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(i, 1);
 
         } else if (id == R.id.nav_slideshow) {
-
+            Intent i = new Intent(this, Help.class);
+            startActivityForResult(i, 1);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
