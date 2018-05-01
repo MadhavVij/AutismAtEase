@@ -5,7 +5,7 @@ package com.project3.www.AutismAtEase;
  */
 
 public class AppSettings {
-    public static final String tagMV = "MV";
-    public static final String tagSH = "SH";
-    public static final String tagAS = "AS";
+    public static final String tagMV = "tagMV";
+    public static final String tagSH = "tagSH";
+    public static final String tagAS = "tagAS";
 }
