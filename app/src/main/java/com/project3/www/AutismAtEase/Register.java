@@ -2,6 +2,7 @@ package com.project3.www.AutismAtEase;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
     private Button btnRegister;
@@ -20,7 +27,7 @@ public class Register extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Contact currentContact;
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +42,7 @@ public class Register extends AppCompatActivity {
         age = findViewById(R.id.age);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        mAuth = FirebaseAuth.getInstance();
 
         currentContact = new Contact();
 
@@ -81,8 +89,29 @@ public class Register extends AppCompatActivity {
             } catch (Exception e) {
                 Log.e(AppSettings.tagMV, "onRegister: Success = " + wasSuccessful + "\nException: " + e);
             }
+            final Intent intent = new Intent("android.intent.action.MainActivity");
 
-            Intent intent = new Intent("android.intent.action.MainActivity");
+            mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Log.e(AppSettings.tagMV, "createAccount: Success!");
+
+                                // update UI with the signed-in user's information
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Log.d(AppSettings.tagMV, "onComplete: USER-> " + user.getEmail());
+                                sendEmailVerification();
+                                //updateUI(user);
+                            } else {
+                                Log.e(AppSettings.tagMV, "createAccount: Fail!", task.getException());
+                                Toast.makeText(getApplicationContext(), "Authentication failed!", Toast.LENGTH_SHORT).show();
+                                //updateUI(null);
+                            }
+                        }
+                    });
+
+
             startActivity(intent);
 
 
@@ -92,6 +121,24 @@ public class Register extends AppCompatActivity {
         }
 
 
+    }
+
+    private void sendEmailVerification() {
+
+        final FirebaseUser user = mAuth.getCurrentUser();
+        user.sendEmailVerification()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Verification email sent to " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.e(AppSettings.tagMV, "sendEmailVerification failed!", task.getException());
+                            Toast.makeText(getApplicationContext(), "Failed to send verification email.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
 
@@ -113,7 +160,7 @@ public class Register extends AppCompatActivity {
             return false;
         }
 
-        if (!password.getText().toString().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=_,.])(?=\\S+$).{8,}$v ")) {
+        if (!password.getText().toString().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=_,.])(?=\\S+$).{8,}$")) {
             password.setError("Alphanumeric and special characters required");
             return false;
         }

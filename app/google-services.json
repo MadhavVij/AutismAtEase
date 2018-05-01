@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "920181449516",
+    "firebase_url": "https://autismatease.firebaseio.com",
+    "project_id": "autismatease",
+    "storage_bucket": "autismatease.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920181449516:android:314a28c70585a018",
+        "android_client_info": {
+          "package_name": "com.project3.www.AutismAtEase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920181449516-j4att4sv9m9grd6ed4qcps8lbmsj8tkb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQVap8nGGklDtvUlGYVh_0l83rP8tnx28"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

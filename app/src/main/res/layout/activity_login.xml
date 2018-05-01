@@ -26,7 +26,7 @@
         app:layout_constraintGuide_percent="0.35" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/uname"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.077" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/pass"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -94,7 +94,7 @@
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLogin"
         android:layout_width="138dp"
         android:layout_height="38dp"
         android:layout_marginBottom="16dp"
