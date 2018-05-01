@@ -15,9 +15,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +105,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
+            signOut();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -118,9 +130,9 @@ public class MainActivity extends AppCompatActivity
         startActivityForResult(i, 1);
     }
 
+    private void signOut() {
+        mAuth.signOut();
+        finish();
+    }
 
-   /* public void help(View view) {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivityForResult(i, 1);
-    }*/
 }
