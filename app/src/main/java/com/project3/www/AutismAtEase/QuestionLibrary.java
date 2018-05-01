@@ -3,7 +3,7 @@ package com.project3.www.AutismAtEase;
 
 public class QuestionLibrary {
 
-    private String mQuestions [] = {
+    private String mQuestions[] = {
             "Question 1 of 14 : \n\nIf you point at something across the  room, does your child look at it?",
             "Question 2 of 14 : \n\nHave you ever wondered if your child  might be deaf?",
             "Question 3 of 14 : \n\nDoes your child play pretend or  make-believe?",
@@ -23,7 +23,7 @@ public class QuestionLibrary {
     };
 
 
-    private String mChoices [][] = {
+    private String mChoices[][] = {
 
             {"Yes", "NO"},
             {"Yes", "NO"},
@@ -43,10 +43,7 @@ public class QuestionLibrary {
     };
 
 
-
-    private String mCorrectAnswers[] = {"Yes", "NO", "NO","Yes","NO","Yes","Yes","Yes","Yes","NO","Yes","Yes","Yes", "Yes"};
-
-
+    private String mCorrectAnswers[] = {"Yes", "NO", "NO", "Yes", "NO", "Yes", "Yes", "Yes", "Yes", "NO", "Yes", "Yes", "Yes", "Yes"};
 
 
     public String getQuestion(int a) {
@@ -65,7 +62,6 @@ public class QuestionLibrary {
         String choice1 = mChoices[a][1];
         return choice1;
     }
-
 
 
     public String getCorrectAnswer(int a) {

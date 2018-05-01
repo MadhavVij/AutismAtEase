@@ -28,6 +28,7 @@ public class Register extends AppCompatActivity {
     private EditText password;
     private Contact currentContact;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

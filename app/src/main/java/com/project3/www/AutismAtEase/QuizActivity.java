@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,10 +31,10 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        mScoreView = (TextView) findViewById(R.id.score);
-        mQuestionView = (TextView) findViewById(R.id.question);
-        mButtonChoice1 = (Button) findViewById(R.id.choice1);
-        mButtonChoice2 = (Button) findViewById(R.id.choice2);
+        mScoreView = findViewById(R.id.score);
+        mQuestionView = findViewById(R.id.question);
+        mButtonChoice1 = findViewById(R.id.choice1);
+        mButtonChoice2 = findViewById(R.id.choice2);
 
 
         updateQuestion();
@@ -45,7 +44,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //My logic for Button goes in here
-                Log.d(AppSettings.tagAS, "onClick: b1,b2,ans"+mButtonChoice1.getText()+mButtonChoice2.getText()+mAnswer);
+                Log.d(AppSettings.tagAS, "onClick: b1,b2,ans" + mButtonChoice1.getText() + mButtonChoice2.getText() + mAnswer);
                 if (mButtonChoice1.getText() == mAnswer) {
                     mScore = mScore + 1;
                     updateScore(mScore);
@@ -53,8 +52,7 @@ public class QuizActivity extends AppCompatActivity {
                    /* //This line of code is optiona
                     Toast.makeText(QuizActivity.this, "next question", Toast.LENGTH_SHORT).show();
 */
-                }
-                else {
+                } else {
                     mScore = mScore - 1;
                     updateScore(mScore);
 
@@ -71,7 +69,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //My logic for Button goes in here
-                Log.d(AppSettings.tagAS, "onClick: b1,b2,ans"+mButtonChoice1.getText()+mButtonChoice2.getText()+mAnswer);
+                Log.d(AppSettings.tagAS, "onClick: b1,b2,ans" + mButtonChoice1.getText() + mButtonChoice2.getText() + mAnswer);
                 if (mButtonChoice2.getText() == mAnswer) {
                     mScore = mScore + 1;
                     updateScore(mScore);
@@ -113,34 +111,33 @@ public class QuizActivity extends AppCompatActivity {
             if (Integer.parseInt(mScoreView.getText().toString()) > 7) {
 
 
-                output="GOOD CONDITION";
-                result = (TextView)findViewById(R.id.final_result);
+                output = "GOOD CONDITION";
+                result = findViewById(R.id.final_result);
 
-                    i.putExtra("op",output);
-                Log.d(AppSettings.tagAS, "updateQuestion: "+output);
+                i.putExtra("op", output);
+                Log.d(AppSettings.tagAS, "updateQuestion: " + output);
                 startActivity(i);
-
 
 
             } else {
 
                 if (Integer.parseInt(mScoreView.getText().toString()) > 0 && Integer.parseInt(mScoreView.getText().toString()) < 7) {
-                    output="AVERAGE CONDITION";
-                    result = (TextView)findViewById(R.id.final_result);
+                    output = "AVERAGE CONDITION";
+                    result = findViewById(R.id.final_result);
 
-                    i.putExtra("op",output);
-                    Log.d(AppSettings.tagAS, "updateQuestion: "+output);
+                    i.putExtra("op", output);
+                    Log.d(AppSettings.tagAS, "updateQuestion: " + output);
                     startActivity(i);
 
 
                 } else {
 
                     if (Integer.parseInt(mScoreView.getText().toString()) > -7 && Integer.parseInt(mScoreView.getText().toString()) < 0) {
-                        output="BAD CONDITION";
-                        result = (TextView)findViewById(R.id.final_result);
+                        output = "BAD CONDITION";
+                        result = findViewById(R.id.final_result);
 
-                        i.putExtra("op",output);
-                        Log.d(AppSettings.tagAS, "updateQuestion: "+output);
+                        i.putExtra("op", output);
+                        Log.d(AppSettings.tagAS, "updateQuestion: " + output);
                         startActivity(i);
                     }
 

@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void tracer(View view) {
-        Intent ij = new Intent(this, QuizActivity.class);
+        Intent ij = new Intent(this, trace.class);
         startActivityForResult(ij, 1);
     }
 
