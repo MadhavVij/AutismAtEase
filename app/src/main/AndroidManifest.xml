@@ -30,6 +30,14 @@
         <activity android:name="com.project3.www.AutismAtEase.trace" />
         <activity android:name="com.project3.www.AutismAtEase.guess" />
         <activity android:name="com.project3.www.AutismAtEase.forgotpass" />
+        <activity android:name=".QuizActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.QuizActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Result" />
 
         <activity
             android:name="com.project3.www.AutismAtEase.Register"

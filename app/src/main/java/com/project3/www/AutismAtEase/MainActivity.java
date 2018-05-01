@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -84,10 +85,13 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Log.d(AppSettings.tagAS, "onNavigationItemSelected: OUT");
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            Log.d(AppSettings.tagAS, "onNavigationItemSelected: Question");
+            Intent i = new Intent(this, QuizActivity.class);
+            startActivityForResult(i, 1);
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -109,7 +113,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void tracer(View view) {
-        Intent ij = new Intent(this, trace.class);
+        Intent ij = new Intent(this, QuizActivity.class);
         startActivityForResult(ij, 1);
     }
 
