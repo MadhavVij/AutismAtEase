@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         RelativeLayout main_view = findViewById(R.id.mainview);
 
-        switch (item.getItemId()) {
+        /*switch (item.getItemId()) {
             case R.id.menu_red:
                 main_view.setBackgroundColor(Color.RED);
 
@@ -83,7 +83,10 @@ public class MainActivity extends AppCompatActivity
 
             default:
                 return super.onOptionsItemSelected(item);
-        }
+        }*/
+
+        return super.onOptionsItemSelected(item);
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -97,8 +100,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             Log.d(AppSettings.tagAS, "onNavigationItemSelected: Question");
             Intent i = new Intent(this, QuizActivity.class);
-           startActivityForResult(i, 1);
-          finish();
+           startActivityForResult(i,1);
 
         } else if (id == R.id.nav_slideshow) {
             Intent i = new Intent(this, Help.class);

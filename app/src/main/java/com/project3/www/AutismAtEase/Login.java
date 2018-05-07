@@ -40,30 +40,42 @@ public class Login extends AppCompatActivity {
 
     public void onclick(View view) {
         final Intent i = new Intent(this, MainActivity.class);
-        mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Log.e(AppSettings.tagMV, "signIn: Success!");
+        if (email.getText().length() == 0 || password.getText().length() == 0 || email.getText() == null || password.getText()== null ) {
+            Toast.makeText(getApplicationContext(), "fields are empty", Toast.LENGTH_SHORT).show();
+        }
+        else {
 
-                            // update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
+            mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            startActivityForResult(i, 1);
-                        } else {
-                            Log.e(AppSettings.tagMV, "signIn: Fail!", task.getException());
-                            Toast.makeText(getApplicationContext(), "Authentication failed!", Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+
+                            if (task.isSuccessful()) {
+                                Log.e(AppSettings.tagMV, "signIn: Success!");
+
+                                // update UI with the signed-in user's information
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                //updateUI(user);
+
+                                startActivityForResult(i, 1);
+                            } else {
+                                Log.e(AppSettings.tagMV, "signIn: Fail!", task.getException());
+                                Toast.makeText(getApplicationContext(), "Authentication failed!", Toast.LENGTH_SHORT).show();
+                                //updateUI(null);
+                            }
+
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Authentication failed!", Toast.LENGTH_SHORT).show();
+                            }
+
+
                         }
 
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Authentication failed!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
 
+                    });
+
+        }
     }
 
     public void newuser(View view) {

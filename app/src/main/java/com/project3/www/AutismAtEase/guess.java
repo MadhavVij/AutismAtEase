@@ -19,20 +19,20 @@ public class guess extends AppCompatActivity {
 
     public void happy(View view) {
         sad = (TextView) findViewById(R.id.textView4);
-        sad.setText("HAPPY");
+        sad.setText("HAPPY!");
 
     }
 
     public void sad(View view) {
         sad = (TextView) findViewById(R.id.textView4);
-        sad.setText("SAD");
+        sad.setText("SAD!");
     }
     public void angry(View view) {
         sad = (TextView) findViewById(R.id.textView4);
-        sad.setText("ANGRY");
+        sad.setText("ANGRY!");
     }
     public void excited(View view) {
         sad = (TextView) findViewById(R.id.textView4);
-        sad.setText("EXCITED");
+        sad.setText("EXCITED!");
     }
 }

@@ -116,7 +116,8 @@ public class QuizActivity extends AppCompatActivity {
 
                 i.putExtra("op", output);
                 Log.d(AppSettings.tagAS, "updateQuestion: " + output);
-                startActivity(i);
+                startActivityForResult(i,1);
+                finish();
 
 
             } else {
@@ -127,7 +128,9 @@ public class QuizActivity extends AppCompatActivity {
 
                     i.putExtra("op", output);
                     Log.d(AppSettings.tagAS, "updateQuestion: " + output);
-                    startActivity(i);
+                    startActivityForResult(i,1);
+                    finish();
+
 
 
                 } else {
@@ -138,7 +141,9 @@ public class QuizActivity extends AppCompatActivity {
 
                         i.putExtra("op", output);
                         Log.d(AppSettings.tagAS, "updateQuestion: " + output);
-                        startActivity(i);
+                        startActivityForResult(i,1);
+                        finish();
+
                     }
 
 
