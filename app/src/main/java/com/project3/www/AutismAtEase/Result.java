@@ -29,7 +29,9 @@ public class Result extends Activity {
 
 
     public void back(View view) {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivityForResult(i, 1);
+
+        finish();
+        /*Intent i = new Intent(this, MainActivity.class);
+        startActivityForResult(i, 1)*/;
     }
 }

@@ -97,7 +97,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             Log.d(AppSettings.tagAS, "onNavigationItemSelected: Question");
             Intent i = new Intent(this, QuizActivity.class);
-            startActivityForResult(i, 1);
+           startActivityForResult(i, 1);
+          finish();
 
         } else if (id == R.id.nav_slideshow) {
             Intent i = new Intent(this, Help.class);
