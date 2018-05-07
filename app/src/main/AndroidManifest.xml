@@ -49,8 +49,27 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Help" />
-        <activity android:name=".About"></activity>
+        <activity android:name=".Help">
+            <intent-filter>
+                <action android:name="android.intent.action.Help" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Symptoms">
+            <intent-filter>
+                <action android:name="android.intent.action.Symptoms" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Treatment">
+            <intent-filter>
+                <action android:name="android.intent.action.Treatment" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

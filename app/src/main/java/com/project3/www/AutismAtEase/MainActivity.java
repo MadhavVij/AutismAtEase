@@ -15,9 +15,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +62,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main2, menu);
+        getMenuInflater().inflate(R.menu.main2, menu);
         return true;
     }
 
@@ -88,14 +100,12 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(i, 1);
 
         } else if (id == R.id.nav_slideshow) {
-
             Intent i = new Intent(this, Help.class);
             startActivityForResult(i, 1);
-
         } else if (id == R.id.nav_share) {
-            Intent i = new Intent(this, About.class);
-            startActivityForResult(i, 1);
+
         } else if (id == R.id.nav_send) {
+            signOut();
             finish();
         }
 
@@ -121,9 +131,9 @@ public class MainActivity extends AppCompatActivity
         startActivityForResult(i, 1);
     }
 
+    private void signOut() {
+        mAuth.signOut();
+        finish();
+    }
 
-   /* public void help(View view) {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivityForResult(i, 1);
-    }*/
 }

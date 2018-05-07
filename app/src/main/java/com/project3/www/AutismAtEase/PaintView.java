@@ -32,7 +32,7 @@ public class PaintView extends View implements View.OnTouchListener {
 
     @Override
     public void onDraw(Canvas canvas) {
-        Drawable d = getResources().getDrawable(R.drawable.trace);
+        Drawable d = getResources().getDrawable(R.drawable.abcd);
         d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         d.draw(canvas);
         for (Point point : points) {

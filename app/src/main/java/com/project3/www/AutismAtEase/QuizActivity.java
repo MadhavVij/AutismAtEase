@@ -111,7 +111,7 @@ public class QuizActivity extends AppCompatActivity {
             if (Integer.parseInt(mScoreView.getText().toString()) > 7) {
 
 
-                output = "GOOD CONDITION";
+                output = "No Risk Detected";
                 result = findViewById(R.id.final_result);
 
                 i.putExtra("op", output);
@@ -122,7 +122,7 @@ public class QuizActivity extends AppCompatActivity {
             } else {
 
                 if (Integer.parseInt(mScoreView.getText().toString()) > 0 && Integer.parseInt(mScoreView.getText().toString()) < 7) {
-                    output = "AVERAGE CONDITION";
+                    output = "Low Risk Detected";
                     result = findViewById(R.id.final_result);
 
                     i.putExtra("op", output);
@@ -132,8 +132,8 @@ public class QuizActivity extends AppCompatActivity {
 
                 } else {
 
-                    if (Integer.parseInt(mScoreView.getText().toString()) > -7 && Integer.parseInt(mScoreView.getText().toString()) < 0) {
-                        output = "BAD CONDITION";
+                    if (Integer.parseInt(mScoreView.getText().toString()) < 0) {
+                        output = "High Risk Detected";
                         result = findViewById(R.id.final_result);
 
                         i.putExtra("op", output);
