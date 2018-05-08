@@ -19,7 +19,7 @@
     <ImageView
         android:id="@+id/ChoosenImageView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"></ImageView>
+        android:layout_height="fill_parent" />
 
 </LinearLayout>
 

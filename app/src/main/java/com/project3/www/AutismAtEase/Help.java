@@ -8,16 +8,13 @@ import android.widget.Button;
 
 public class Help extends AppCompatActivity {
 
-    private Button btnSymptom;
-    private Button btnTreatment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
-        btnSymptom = findViewById(R.id.btnSymptoms);
-        btnTreatment = findViewById(R.id.btnTreatment);
+        Button btnSymptom = findViewById(R.id.btnSymptoms);
+        Button btnTreatment = findViewById(R.id.btnTreatment);
 
         btnSymptom.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +16,11 @@ import java.util.List;
 public class PaintView extends View implements View.OnTouchListener {
     private static final String TAG = "PaintView";
 
-    List<Point> points = new ArrayList<Point>();
+    @NonNull
+    private final
+    List<Point> points = new ArrayList<>();
+    @NonNull
+    private final
     Paint paint = new Paint();
 
     public PaintView(Context context) {
@@ -31,7 +36,7 @@ public class PaintView extends View implements View.OnTouchListener {
     }
 
     @Override
-    public void onDraw(Canvas canvas) {
+    public void onDraw(@NonNull Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.abcd);
         d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         d.draw(canvas);
@@ -40,7 +45,7 @@ public class PaintView extends View implements View.OnTouchListener {
         }
     }
 
-    public boolean onTouch(View view, MotionEvent event) {
+    public boolean onTouch(View view, @NonNull MotionEvent event) {
         Point point = new Point();
         point.x = event.getX();
         point.y = event.getY();
@@ -54,6 +59,7 @@ public class PaintView extends View implements View.OnTouchListener {
 class Point {
     float x, y;
 
+    @NonNull
     @Override
     public String toString() {
         return x + ", " + y;

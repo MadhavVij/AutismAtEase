@@ -1,16 +1,12 @@
 package com.project3.www.AutismAtEase;
 
-/**
- * Created by Michael Eierman on 11/10/2016.
- */
-
 
 /**
  * Created by Madhav on 3/6/2018.
  * Refrenced: Michael Eierman on 11/10/2016.
  */
 
-public class Contact {
+class Contact {
 
     private int contactID;
     private String fName;

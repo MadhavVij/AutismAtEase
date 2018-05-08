@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class forgotpass extends AppCompatActivity {
 
-    private Button submitFgt;
     private EditText emailAddress;
 
     @Override
@@ -23,7 +22,7 @@ public class forgotpass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpass);
 
-        submitFgt = findViewById(R.id.submitFgt);
+        Button submitFgt = findViewById(R.id.submitFgt);
         emailAddress = findViewById(R.id.emailFgt);
 
         submitFgt.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +34,7 @@ public class forgotpass extends AppCompatActivity {
 
     }
 
-    private void sendEmail(final String emailAddress) {
+    private void sendEmail(@NonNull final String emailAddress) {
         final Intent intent = new Intent("android.intent.action.MAIN");
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.sendPasswordResetEmail(emailAddress)

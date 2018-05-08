@@ -1,8 +1,8 @@
 package com.project3.www.AutismAtEase;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onStart() {
@@ -91,25 +91,33 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Log.d(AppSettings.tagAS, "onNavigationItemSelected: OUT");
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            Log.d(AppSettings.tagAS, "onNavigationItemSelected: Question");
-            Intent i = new Intent(this, QuizActivity.class);
-           startActivityForResult(i,1);
+        switch (id) {
+            case R.id.nav_camera:
+                // Handle the camera action
+                break;
+            case R.id.nav_gallery: {
+                Log.d(AppSettings.tagAS, "onNavigationItemSelected: Question");
+                Intent i = new Intent(this, QuizActivity.class);
+                startActivityForResult(i, 1);
 
-        } else if (id == R.id.nav_slideshow) {
-            Intent i = new Intent(this, Help.class);
-            startActivityForResult(i, 1);
-        } else if (id == R.id.nav_share) {
+                break;
+            }
+            case R.id.nav_slideshow: {
+                Intent i = new Intent(this, Help.class);
+                startActivityForResult(i, 1);
+                break;
+            }
+            case R.id.nav_share:
 
-        } else if (id == R.id.nav_send) {
-            signOut();
-            finish();
+                break;
+            case R.id.nav_send:
+                signOut();
+                finish();
+                break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

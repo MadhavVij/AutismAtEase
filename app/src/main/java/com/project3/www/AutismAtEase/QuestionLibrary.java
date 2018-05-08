@@ -1,9 +1,12 @@
 package com.project3.www.AutismAtEase;
 
 
-public class QuestionLibrary {
+import android.support.annotation.NonNull;
 
-    private String mQuestions[] = {
+class QuestionLibrary {
+
+    @NonNull
+    private final String[] mQuestions = {
             "Question 1 of 14 : \n\nIf you point at something across the  room, does your child look at it?",
             "Question 2 of 14 : \n\nHave you ever wondered if your child  might be deaf?",
             "Question 3 of 14 : \n\nDoes your child play pretend or  make-believe?",
@@ -23,7 +26,8 @@ public class QuestionLibrary {
     };
 
 
-    private String mChoices[][] = {
+    @NonNull
+    private final String[][] mChoices = {
 
             {"Yes", "NO"},
             {"Yes", "NO"},
@@ -43,30 +47,27 @@ public class QuestionLibrary {
     };
 
 
-    private String mCorrectAnswers[] = {"Yes", "NO", "NO", "Yes", "NO", "Yes", "Yes", "Yes", "Yes", "NO", "Yes", "Yes", "Yes", "Yes"};
+    @NonNull
+    private final String[] mCorrectAnswers = {"Yes", "NO", "NO", "Yes", "NO", "Yes", "Yes", "Yes", "Yes", "NO", "Yes", "Yes", "Yes", "Yes"};
 
 
     public String getQuestion(int a) {
-        String question = mQuestions[a];
-        return question;
+        return mQuestions[a];
     }
 
 
     public String getChoice1(int a) {
-        String choice0 = mChoices[a][0];
-        return choice0;
+        return mChoices[a][0];
     }
 
 
     public String getChoice2(int a) {
-        String choice1 = mChoices[a][1];
-        return choice1;
+        return mChoices[a][1];
     }
 
 
     public String getCorrectAnswer(int a) {
-        String answer = mCorrectAnswers[a];
-        return answer;
+        return mCorrectAnswers[a];
     }
 
 }

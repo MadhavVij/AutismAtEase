@@ -2,6 +2,7 @@ package com.project3.www.AutismAtEase;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -10,11 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
-    private String output;
-    private TextView result;
 
 
-    private QuestionLibrary mQuestionLibrary = new QuestionLibrary();
+    @NonNull
+    private final QuestionLibrary mQuestionLibrary = new QuestionLibrary();
 
     private TextView mScoreView;
     private TextView mQuestionView;
@@ -108,6 +108,8 @@ public class QuizActivity extends AppCompatActivity {
             Toast.makeText(QuizActivity.this, "Thankyou for your submission", Toast.LENGTH_SHORT).show();
 
             Intent i = new Intent(this, Result.class);
+            TextView result;
+            String output;
             if (Integer.parseInt(mScoreView.getText().toString()) > 7) {
 
 

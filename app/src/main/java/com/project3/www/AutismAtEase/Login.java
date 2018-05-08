@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
-    private Button btnLogin;
     private EditText email;
     private EditText password;
     private FirebaseAuth mAuth;
@@ -28,7 +27,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnLogin = findViewById(R.id.btnLogin);
+        Button btnLogin = findViewById(R.id.btnLogin);
         email = findViewById(R.id.uname);
         password = findViewById(R.id.pass);
 

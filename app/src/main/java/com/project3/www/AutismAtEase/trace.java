@@ -7,7 +7,7 @@ import android.view.WindowManager;
 
 public class trace extends Activity {
 
-    PaintView paintView;
+    private PaintView paintView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

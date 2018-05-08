@@ -4,16 +4,17 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 
 /**
  * Created by Madhav on 3/6/2018.
  */
 
 
-public class ContactDataSource {
+class ContactDataSource {
 
     private SQLiteDatabase database;
-    private ContactDBHelper dbHelper;
+    private final ContactDBHelper dbHelper;
 
     public ContactDataSource(Context context) {
         dbHelper = new ContactDBHelper(context);
@@ -27,7 +28,7 @@ public class ContactDataSource {
         dbHelper.close();
     }
 
-    public boolean insertContact(Contact c) {
+    public boolean insertContact(@NonNull Contact c) {
         boolean didSucceed = false;
         try {
             ContentValues initialValues = new ContentValues();
@@ -46,7 +47,7 @@ public class ContactDataSource {
         return didSucceed;
     }
 
-    public boolean updateContact(Contact c) {
+    public boolean updateContact(@NonNull Contact c) {
         boolean didSucceed = false;
         try {
             Long rowId = (long) c.getContactID();
@@ -68,7 +69,7 @@ public class ContactDataSource {
     }
 
     public int getLastContactId() {
-        int lastId = -1;
+        int lastId;
         try {
             String query = "Select MAX(_id) from contact";
             Cursor cursor = database.rawQuery(query, null);
@@ -80,11 +81,6 @@ public class ContactDataSource {
             lastId = -1;
         }
         return lastId;
-    }
-
-    public Cursor getData() {
-
-        return database.rawQuery("Select * FROM contact", null);
     }
 
 }

@@ -18,8 +18,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class Register extends AppCompatActivity {
-    private Button btnRegister;
     private EditText fname;
     private EditText lname;
     private Spinner gender;
@@ -36,7 +37,7 @@ public class Register extends AppCompatActivity {
 
         initSpinner();
 
-        btnRegister = findViewById(R.id.btnRgn);
+        Button btnRegister = findViewById(R.id.btnRgn);
         fname = findViewById(R.id.fname);
         lname = findViewById(R.id.lname);
         gender = findViewById(R.id.gender);
@@ -101,7 +102,7 @@ public class Register extends AppCompatActivity {
 
                                 // update UI with the signed-in user's information
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                Log.d(AppSettings.tagMV, "onComplete: USER-> " + user.getEmail());
+                                Log.d(AppSettings.tagMV, "onComplete: USER-> " + Objects.requireNonNull(user).getEmail());
                                 sendEmailVerification();
                                 //updateUI(user);
                             } else {
@@ -127,7 +128,7 @@ public class Register extends AppCompatActivity {
     private void sendEmailVerification() {
 
         final FirebaseUser user = mAuth.getCurrentUser();
-        user.sendEmailVerification()
+        Objects.requireNonNull(user).sendEmailVerification()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -143,7 +144,7 @@ public class Register extends AppCompatActivity {
     }
 
 
-    public boolean validate() {
+    private boolean validate() {
         if (fname.getText().toString().matches("")) {
             fname.setError("First name cannot be empty");
             return false;

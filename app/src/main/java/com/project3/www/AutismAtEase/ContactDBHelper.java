@@ -3,13 +3,14 @@ package com.project3.www.AutismAtEase;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 /**
  * Created by Madhav on 3/6/2018.
  */
 
-public class ContactDBHelper extends SQLiteOpenHelper {
+class ContactDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "aecontacts.db";
     private static final int DATABASE_VERSION = 1;
@@ -27,12 +28,12 @@ public class ContactDBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase database) {
+    public void onCreate(@NonNull SQLiteDatabase database) {
         database.execSQL(CREATE_TABLE_CONTACT);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(@NonNull SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.w(ContactDBHelper.class.getName(),
                 "Upgrading database from version " + oldVersion + " to "
                         + newVersion + ", which will destroy all old data");
