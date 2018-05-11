@@ -30,5 +30,7 @@
     <string name="hintEmail">john.smith@gmail.com</string>
     <string name="register">Register</string>
 
+
+    <string name="claping_gif">https://media.giphy.com/media/BqVl9yc94lXvq/giphy.gif</string>
 </resources>
 

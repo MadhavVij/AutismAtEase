@@ -98,21 +98,25 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case R.id.nav_camera:
                 // Handle the camera action
+                Intent i = new Intent(this, Instructions.class);
+                startActivityForResult(i, 1);
+
                 break;
             case R.id.nav_gallery: {
                 Log.d(AppSettings.tagAS, "onNavigationItemSelected: Question");
-                Intent i = new Intent(this, QuizActivity.class);
-                startActivityForResult(i, 1);
+                Intent j = new Intent(this, QuizActivity.class);
+                startActivityForResult(j, 1);
 
                 break;
             }
             case R.id.nav_slideshow: {
-                Intent i = new Intent(this, Help.class);
-                startActivityForResult(i, 1);
+                Intent k = new Intent(this, Help.class);
+                startActivityForResult(k, 1);
                 break;
             }
             case R.id.nav_share:
-
+                Intent l = new Intent(this, About.class);
+                startActivityForResult(l, 1);
                 break;
             case R.id.nav_send:
                 signOut();
@@ -136,6 +140,10 @@ public class MainActivity extends AppCompatActivity
         startActivityForResult(ij, 1);
     }
 
+    public void mimic(View view) {
+        Intent i = new Intent(this, mimic.class);
+        startActivityForResult(i, 1);
+    }
 
     public void guessme(View view) {
         Intent i = new Intent(this, guess.class);

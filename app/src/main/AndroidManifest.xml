@@ -3,13 +3,15 @@
     package="com.project3.www.AutismAtEase">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:hardwareAccelerated="false"
-        android:largeHeap="true"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -72,6 +74,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".About" />
+        <activity android:name=".mimic" />
+        <activity android:name=".Dance" />
+        <activity android:name=".Clap" />
+        <activity android:name=".Crawl" />
+        <activity android:name=".Hands" />
+        <activity android:name=".Jump" />
+        <activity android:name=".Laugh" />
+        <activity android:name=".Instructions" />
+        <activity android:name=".Brush" />
+        <activity android:name=".Toilet" />
+        <activity android:name=".HandWash" />
+        <activity android:name=".Routine" />
     </application>
 
 </manifest>
